@@ -1,6 +1,6 @@
 {
-  "last_turn_at": "2026-05-30T02:56:28.516Z",
-  "turn_count": 15,
-  "last_progress_at": "2026-05-30T02:56:28.516Z",
-  "last_agent_output": "已实现 `assets/BGM/` 文件夹音乐循环播放。\n\n改动：\n- [src/main.js](D:/MyFun/vibe_coding/The_Moon_Adventure/src/main.j"
+  "last_turn_at": "2026-05-30T03:18:22.657Z",
+  "turn_count": 19,
+  "last_progress_at": "2026-05-30T03:18:22.657Z",
+  "last_agent_output": "已处理。\n\n改动在 `src/main.js`：\n- 地球不再挂到 `camera` 上，改为挂到 `scene`，所以玩家移动时它的世界坐标不再跟着玩家走。\n- 保留原来的画面初始方向和视觉大小。\n"
 }

@@ -38,6 +38,10 @@ const ALIEN_FACE_DISTANCE = 18;
 const METEOR_MIN_INTERVAL = 5.5;
 const METEOR_MAX_INTERVAL = 11;
 
+const EARTH_CAMERA_OFFSET = new THREE.Vector3(-34, 31, -120);
+const EARTH_BASE_SCALE = new THREE.Vector3(22, 15, 1);
+const EARTH_WORLD_DISTANCE = 1800;
+
 // Camera-local sky zones. Increase a zone's weight to make meteors appear there more often.
 // Keep y high and z negative so meteors remain in the sky and never appear to hit the moon.
 const METEOR_SPAWN_ZONES = [
@@ -86,6 +90,10 @@ let questionPool = [];
 let terrainMesh;
 let roverDash;
 let pathLine;
+let earthGroup;
+let earthSprite;
+let earthInitialDistance = 1;
+const earthInitialScale = new THREE.Vector3();
 let meteorLayer;
 let meteorTexture;
 let moonDustTexture;
@@ -111,7 +119,7 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x090a0a);
 scene.fog = new THREE.FogExp2(0x090a0a, 0.012);
 
-const camera = new THREE.PerspectiveCamera(68, window.innerWidth / window.innerHeight, 0.1, 680);
+const camera = new THREE.PerspectiveCamera(68, window.innerWidth / window.innerHeight, 0.1, 2600);
 camera.rotation.order = "YXZ";
 scene.add(camera);
 
@@ -141,9 +149,11 @@ async function init() {
   questionPool = await loadQuestions();
   createLights();
   createStars();
+  createTerrain();
+  state.rover.position.y = terrainHeight(state.rover.position.x, state.rover.position.z) + ROVER_EYE_HEIGHT;
+  updateCamera();
   createEarth();
   createMeteorSystem();
-  createTerrain();
   createRoute();
   createAliens();
   createRoverDashboard();
@@ -180,6 +190,20 @@ function exposeDevDebug() {
       const forward = new THREE.Vector3();
       camera.getWorldDirection(forward);
       return { x: forward.x, y: forward.y, z: forward.z };
+    },
+    getEarth: () => {
+      if (!earthGroup || !earthSprite) {
+        return null;
+      }
+      return {
+        parent: earthGroup.parent === scene ? "scene" : earthGroup.parent?.type || "none",
+        x: earthGroup.position.x,
+        y: earthGroup.position.y,
+        z: earthGroup.position.z,
+        distance: camera.position.distanceTo(earthGroup.position),
+        scaleX: earthSprite.scale.x,
+        scaleY: earthSprite.scale.y
+      };
     },
     getAliens: () =>
       aliens.map((alien, index) => ({
@@ -270,25 +294,38 @@ function createStars() {
 }
 
 function createEarth() {
-  const earthGroup = new THREE.Group();
-  earthGroup.position.set(-18, 14, -120);
-  camera.add(earthGroup);
+  earthGroup = new THREE.Group();
+  const earthDirection = EARTH_CAMERA_OFFSET.clone().normalize().applyQuaternion(camera.quaternion);
+  earthGroup.position.copy(camera.position).addScaledVector(earthDirection, EARTH_WORLD_DISTANCE);
+  scene.add(earthGroup);
 
   const earthTexture = new THREE.TextureLoader().load(earthUrl);
   earthTexture.colorSpace = THREE.SRGBColorSpace;
   earthTexture.anisotropy = 4;
 
-  const earthSprite = new THREE.Sprite(
+  earthSprite = new THREE.Sprite(
     new THREE.SpriteMaterial({
       map: earthTexture,
       transparent: true,
       depthWrite: false,
+      depthTest: false,
       fog: false
     })
   );
-  earthSprite.scale.set(22, 15, 1);
+  earthInitialDistance = camera.position.distanceTo(earthGroup.position);
+  earthInitialScale.copy(EARTH_BASE_SCALE).multiplyScalar(earthInitialDistance / EARTH_CAMERA_OFFSET.length());
+  earthSprite.scale.copy(earthInitialScale);
   earthSprite.center.set(0.5, 0.5);
+  earthSprite.renderOrder = 1;
   earthGroup.add(earthSprite);
+}
+
+function updateEarth() {
+  if (!earthGroup || !earthSprite) {
+    return;
+  }
+  const distance = camera.position.distanceTo(earthGroup.position);
+  earthSprite.scale.copy(earthInitialScale).multiplyScalar(distance / earthInitialDistance);
 }
 
 function createMeteorSystem() {
@@ -1205,6 +1242,7 @@ function updateCamera() {
   camera.position.copy(state.rover.position);
   const roll = Math.sin(performance.now() * 0.004) * Math.min(Math.abs(state.rover.speed) / 9, 1) * 0.008;
   camera.rotation.set(-0.055, state.rover.yaw, roll);
+  updateEarth();
 }
 
 function updateAliens(time) {
