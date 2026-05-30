@@ -1,6 +1,6 @@
 {
-  "last_turn_at": "2026-05-30T03:18:22.657Z",
-  "turn_count": 19,
-  "last_progress_at": "2026-05-30T03:18:22.657Z",
-  "last_agent_output": "已处理。\n\n改动在 `src/main.js`：\n- 地球不再挂到 `camera` 上，改为挂到 `scene`，所以玩家移动时它的世界坐标不再跟着玩家走。\n- 保留原来的画面初始方向和视觉大小。\n"
+  "last_turn_at": "2026-05-30T16:31:37.512Z",
+  "turn_count": 21,
+  "last_progress_at": "2026-05-30T16:31:37.512Z",
+  "last_agent_output": "确实是 `run.bat` 入口的问题：它以前固定打开 `127.0.0.1:5173`，如果旧服务器还占着 5173，新服务器会跑到 5174，但浏览器仍打开旧页面。\n\n已改：\n- [run.bat"
 }

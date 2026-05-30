@@ -26,6 +26,18 @@ if not exist node_modules (
   )
 )
 
-start "" "http://127.0.0.1:5173"
-call npm run dev
+set "PORT="
+for /f %%P in ('powershell -NoProfile -ExecutionPolicy Bypass -Command "$p=5173; while ($p -lt 5200 -and (Get-NetTCPConnection -LocalPort $p -State Listen -ErrorAction SilentlyContinue)) { $p++ }; if ($p -ge 5200) { exit 1 }; $p"') do set "PORT=%%P"
+
+if not defined PORT (
+  echo No available local port was found between 5173 and 5199.
+  pause
+  exit /b 1
+)
+
+echo Starting The Moon Adventure at http://127.0.0.1:%PORT%
+if not "%MOON_NO_BROWSER%"=="1" (
+  start "" powershell -NoProfile -WindowStyle Hidden -Command "Start-Sleep -Seconds 2; Start-Process 'http://127.0.0.1:%PORT%'"
+)
+call npm run dev -- --port %PORT% --strictPort
 pause

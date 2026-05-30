@@ -52,6 +52,8 @@ const METEOR_SPAWN_ZONES = [
 
 const QUESTION_FILES = ["pinyin", "math", "chinese", "english"];
 const OPTION_LETTERS = ["A", "B", "C", "D"];
+const CONTROL_KEYS = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Space"];
+const INPUT_EVENT_HANDLED_FLAG = "__moonAdventureInputHandled";
 const creatureNames = [
   "露娜",
   "米米",
@@ -1083,26 +1085,41 @@ function addTubeBetween(parent, material, start, end, radius) {
 }
 
 function bindInput() {
-  window.addEventListener("resize", resize);
+  window.__moonAdventureInputCleanup?.();
+
+  const controller = new AbortController();
+  const { signal } = controller;
+  const cleanupInput = () => controller.abort();
+  window.__moonAdventureInputCleanup = cleanupInput;
+
+  window.addEventListener("resize", resize, { signal });
   window.addEventListener("keydown", (event) => {
-    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Space"].includes(event.code)) {
+    if (event[INPUT_EVENT_HANDLED_FLAG]) {
+      return;
+    }
+    event[INPUT_EVENT_HANDLED_FLAG] = true;
+
+    if (CONTROL_KEYS.includes(event.code)) {
       event.preventDefault();
     }
     tryStartMusic();
     if (state.mode === "quiz") {
+      if (event.repeat) {
+        return;
+      }
       handleQuizKey(event.code);
       return;
     }
     if (event.code.startsWith("Arrow")) {
       state.keys.add(event.code);
     }
-  });
+  }, { signal });
 
   window.addEventListener("keyup", (event) => {
     state.keys.delete(event.code);
-  });
+  }, { signal });
 
-  window.addEventListener("pointerdown", tryStartMusic);
+  window.addEventListener("pointerdown", tryStartMusic, { signal });
 
   musicButton.addEventListener("click", () => {
     state.audioWanted = !state.audioWanted;
@@ -1113,15 +1130,28 @@ function bindInput() {
       state.audioReady = false;
     }
     updateMusicButton();
-  });
+  }, { signal });
 
   restartButton.addEventListener("click", () => {
     resetGame();
-  });
+  }, { signal });
+
+  if (import.meta.hot) {
+    import.meta.hot.dispose(() => {
+      cleanupInput();
+      if (window.__moonAdventureInputCleanup === cleanupInput) {
+        delete window.__moonAdventureInputCleanup;
+      }
+    });
+  }
 }
 
 function handleQuizKey(code) {
-  if (code === "ArrowLeft") {
+  const directOption = ["KeyA", "KeyB", "KeyC", "KeyD", "Digit1", "Digit2", "Digit3", "Digit4"].indexOf(code);
+  if (directOption >= 0) {
+    state.selectedOption = directOption % 4;
+    renderOptions();
+  } else if (code === "ArrowLeft") {
     state.selectedOption = (state.selectedOption + 3) % 4;
     renderOptions();
   } else if (code === "ArrowRight") {
