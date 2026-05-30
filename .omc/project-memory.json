@@ -1,0 +1,118 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1780103676591,
+  "projectRoot": "D:\\MyFun\\vibe_coding\\The_Moon_Adventure",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "vite",
+        "version": "8.0.14",
+        "category": "build"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "vite --host 127.0.0.1 --port 5173",
+      "build": "vite build",
+      "preview": "vite preview --host 127.0.0.1 --port 4173"
+    }
+  },
+  "conventions": {
+    "namingStyle": "camelCase",
+    "importStyle": "ES modules",
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "assets",
+      "public",
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "assets": {
+      "path": "assets",
+      "purpose": "Static assets",
+      "fileCount": 5,
+      "lastAccessed": 1780103676531,
+      "keyFiles": [
+        "earth.png",
+        "Space Little Lion.mp3"
+      ]
+    },
+    "dist": {
+      "path": "dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 1,
+      "lastAccessed": 1780103676533,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 0,
+      "lastAccessed": 1780103676550,
+      "keyFiles": []
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 2,
+      "lastAccessed": 1780103676551,
+      "keyFiles": [
+        "main.js",
+        "styles.css"
+      ]
+    },
+    "dist\\assets": {
+      "path": "dist\\assets",
+      "purpose": "Static assets",
+      "fileCount": 4,
+      "lastAccessed": 1780103676553,
+      "keyFiles": [
+        "earth-CLwWH1fA.png",
+        "index-BhbyhpO9.css",
+        "index-CT1VozDW.js"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "assets\\earth1.png",
+      "accessCount": 1,
+      "lastAccessed": 1780103811030,
+      "type": "file"
+    },
+    {
+      "path": "assets\\earth.png",
+      "accessCount": 1,
+      "lastAccessed": 1780103811054,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

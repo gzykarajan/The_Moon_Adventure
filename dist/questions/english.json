@@ -1,0 +1,25 @@
+{
+  "subject": "英语",
+  "items": [
+    { "id": "english-01", "question": "apple 是什么？", "options": ["苹果", "香蕉", "小猫", "月亮"], "answer": 0 },
+    { "id": "english-02", "question": "cat 是什么？", "options": ["狗", "猫", "鸟", "鱼"], "answer": 1 },
+    { "id": "english-03", "question": "red 是什么颜色？", "options": ["红色", "蓝色", "绿色", "白色"], "answer": 0 },
+    { "id": "english-04", "question": "one 表示数字？", "options": ["1", "2", "3", "4"], "answer": 0 },
+    { "id": "english-05", "question": "dog 是什么？", "options": ["小狗", "小猫", "小鸟", "小鱼"], "answer": 0 },
+    { "id": "english-06", "question": "blue 是什么颜色？", "options": ["红色", "蓝色", "黄色", "黑色"], "answer": 1 },
+    { "id": "english-07", "question": "book 是什么？", "options": ["书", "球", "门", "水"], "answer": 0 },
+    { "id": "english-08", "question": "sun 是什么？", "options": ["月亮", "太阳", "星星", "云"], "answer": 1 },
+    { "id": "english-09", "question": "two 表示数字？", "options": ["1", "2", "3", "4"], "answer": 1 },
+    { "id": "english-10", "question": "green 是什么颜色？", "options": ["绿色", "粉色", "黑色", "白色"], "answer": 0 },
+    { "id": "english-11", "question": "moon 是什么？", "options": ["太阳", "月亮", "地球", "火星"], "answer": 1 },
+    { "id": "english-12", "question": "star 是什么？", "options": ["星星", "石头", "花", "车"], "answer": 0 },
+    { "id": "english-13", "question": "hello 的意思是？", "options": ["再见", "你好", "谢谢", "晚安"], "answer": 1 },
+    { "id": "english-14", "question": "yellow 是什么颜色？", "options": ["黄色", "蓝色", "紫色", "绿色"], "answer": 0 },
+    { "id": "english-15", "question": "fish 是什么？", "options": ["鱼", "鸟", "牛", "马"], "answer": 0 },
+    { "id": "english-16", "question": "three 表示数字？", "options": ["2", "3", "4", "5"], "answer": 1 },
+    { "id": "english-17", "question": "water 是什么？", "options": ["火", "水", "风", "土"], "answer": 1 },
+    { "id": "english-18", "question": "bird 是什么？", "options": ["鸟", "狗", "猫", "鱼"], "answer": 0 },
+    { "id": "english-19", "question": "white 是什么颜色？", "options": ["黑色", "白色", "红色", "黄色"], "answer": 1 },
+    { "id": "english-20", "question": "bye 的意思是？", "options": ["你好", "谢谢", "再见", "请"], "answer": 2 }
+  ]
+}

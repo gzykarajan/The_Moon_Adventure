@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:," />
+    <title>月球探险 The Moon Adventure</title>
+    <script type="module" crossorigin src="/assets/index-BBii_cWl.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BFryzCA4.css">
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="moon-canvas" aria-label="月球探险 3D 游戏画面"></canvas>
+
+      <div class="hud hud-top">
+        <div class="brand">
+          <span class="brand-mark">MOON</span>
+          <span class="brand-title">月球探险</span>
+        </div>
+        <div class="status-pill" id="progressText">外星朋友 0 / 10</div>
+        <div class="status-pill star-pill" id="starText">星星 0</div>
+        <div class="drive-panel" id="drivePanel">
+          <div class="drive-line">↑ ↓ 前进/后退 · ← → 转向</div>
+          <div class="drive-subline" id="hintText">自由驾驶月球车，寻找任意一位外星朋友。</div>
+        </div>
+        <button class="icon-button" id="musicButton" type="button" aria-label="开启或停止背景音乐" title="音乐">
+          <span id="musicIcon">♪</span>
+        </button>
+      </div>
+
+      <section class="question-panel hidden" id="questionPanel" aria-live="polite">
+        <div class="question-creature" id="questionCreature">月光朋友</div>
+        <div class="question-meta" id="questionMeta">拼音题</div>
+        <h1 id="questionText">题目加载中...</h1>
+        <div class="options" id="options"></div>
+        <div class="question-help">← → 选择答案，空格确认</div>
+      </section>
+
+      <section class="finish-panel hidden" id="finishPanel" aria-live="polite">
+        <h1>通关成功🎉</h1>
+        <p>你收集了 10 颗月光星星，所有外星朋友都认识你啦🥳</p>
+        <button id="restartButton" type="button">再探险一次</button>
+      </section>
+
+      <div class="loading" id="loading">正在准备月球车...</div>
+    </div>
+  </body>
+</html>

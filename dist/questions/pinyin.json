@@ -1,0 +1,25 @@
+{
+  "subject": "拼音",
+  "items": [
+    { "id": "pinyin-01", "question": "\"妈\" 的拼音声母是？", "options": ["m", "b", "p", "f"], "answer": 0 },
+    { "id": "pinyin-02", "question": "\"爸\" 的拼音是？", "options": ["dà", "bà", "pà", "mà"], "answer": 1 },
+    { "id": "pinyin-03", "question": "\"花\" 的韵母是？", "options": ["a", "ua", "uo", "ai"], "answer": 1 },
+    { "id": "pinyin-04", "question": "\"niú\" 是哪个字的拼音？", "options": ["鸟", "牛", "女", "年"], "answer": 1 },
+    { "id": "pinyin-05", "question": "\"月\" 的拼音是？", "options": ["yuè", "yè", "yǔ", "yún"], "answer": 0 },
+    { "id": "pinyin-06", "question": "\"星\" 的拼音是？", "options": ["xīn", "xíng", "xīng", "qīng"], "answer": 2 },
+    { "id": "pinyin-07", "question": "\"山\" 的声母是？", "options": ["s", "sh", "ch", "zh"], "answer": 1 },
+    { "id": "pinyin-08", "question": "\"水\" 的拼音是？", "options": ["shuǐ", "suǐ", "huǐ", "shuí"], "answer": 0 },
+    { "id": "pinyin-09", "question": "\"天\" 的韵母是？", "options": ["an", "ian", "en", "ang"], "answer": 1 },
+    { "id": "pinyin-10", "question": "\"rì\" 是哪个字的拼音？", "options": ["月", "日", "口", "田"], "answer": 1 },
+    { "id": "pinyin-11", "question": "\"小\" 的拼音是？", "options": ["xiǎo", "jiǎo", "qiǎo", "xiào"], "answer": 0 },
+    { "id": "pinyin-12", "question": "\"车\" 的声母是？", "options": ["c", "ch", "z", "zh"], "answer": 1 },
+    { "id": "pinyin-13", "question": "\"白\" 的韵母是？", "options": ["ai", "ei", "ao", "ou"], "answer": 0 },
+    { "id": "pinyin-14", "question": "\"gǒu\" 是哪个字的拼音？", "options": ["狗", "猫", "鸟", "鱼"], "answer": 0 },
+    { "id": "pinyin-15", "question": "\"草\" 的拼音是？", "options": ["chǎo", "cǎo", "zǎo", "sǎo"], "answer": 1 },
+    { "id": "pinyin-16", "question": "\"火\" 的声母是？", "options": ["f", "h", "x", "k"], "answer": 1 },
+    { "id": "pinyin-17", "question": "\"蓝\" 的拼音是？", "options": ["lán", "nán", "lǎng", "lián"], "answer": 0 },
+    { "id": "pinyin-18", "question": "\"kǒu\" 是哪个字的拼音？", "options": ["日", "口", "目", "耳"], "answer": 1 },
+    { "id": "pinyin-19", "question": "\"云\" 的拼音是？", "options": ["yún", "yǔ", "yīn", "yáng"], "answer": 0 },
+    { "id": "pinyin-20", "question": "\"书\" 的声母是？", "options": ["s", "sh", "x", "q"], "answer": 1 }
+  ]
+}

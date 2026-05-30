@@ -1,0 +1,3 @@
+[   17092ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5188/src/main.js?t=1780072963588:0
+[   17204ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5188/src/main.js?t=1780072963758:0
+[   20869ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:5188/src/main.js?t=1780072967465:0

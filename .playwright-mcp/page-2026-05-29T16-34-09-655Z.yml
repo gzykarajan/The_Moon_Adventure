@@ -1,0 +1,12 @@
+- generic [ref=e2]:
+  - generic "月球探险 3D 游戏画面" [ref=e3]
+  - generic:
+    - generic:
+      - generic: MOON
+      - generic: 月球探险
+    - generic: 外星朋友 0 / 10
+    - generic: 星星 0
+    - button "开启或停止背景音乐" [ref=e4] [cursor=pointer]: ×
+  - generic:
+    - generic: ↑ ↓ 前进/后退 · ← → 转向
+    - generic: 自由驾驶月球车，寻找任意一位外星朋友。

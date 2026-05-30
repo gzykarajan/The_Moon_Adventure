@@ -1,0 +1,14 @@
+{
+  "visual_verdict": {
+    "score": 95,
+    "threshold_passed": true,
+    "verdict": "pass",
+    "category_match": true,
+    "reasoning": "The generated screenshot shows the driving instruction panel moved from the bottom cockpit area to the top HUD gap between the score pills and the music button. It no longer blocks the rover dashboard or lower driving view.",
+    "differences": [
+      "The panel now uses the same HUD row, so it will wrap beneath the cards on narrow screens."
+    ],
+    "suggestions": [],
+    "next_actions": []
+  }
+}

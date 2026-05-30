@@ -1,0 +1,30 @@
+- generic [ref=e2]:
+  - generic "月球探险 3D 游戏画面" [ref=e3]
+  - generic:
+    - generic:
+      - generic: MOON
+      - generic: 月球探险
+    - generic: 外星朋友 0 / 10
+    - generic: 星星 0
+    - button "开启或停止背景音乐" [ref=e4] [cursor=pointer]: ×
+  - generic:
+    - generic: ↑ ↓ 前进/后退 · ← → 转向
+    - generic: 答对题目就能得到一颗星。
+  - generic [ref=e5]:
+    - generic [ref=e6]: 露娜 的月光题
+    - generic [ref=e7]: 英语 · 选择 A、B、C、D
+    - heading "apple 是什么？" [level=1] [ref=e8]
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]: A
+        - generic [ref=e12]: 苹果
+      - generic [ref=e13]:
+        - generic [ref=e14]: B
+        - generic [ref=e15]: 香蕉
+      - generic [ref=e16]:
+        - generic [ref=e17]: C
+        - generic [ref=e18]: 小猫
+      - generic [ref=e19]:
+        - generic [ref=e20]: D
+        - generic [ref=e21]: 月亮
+    - generic [ref=e22]: ← → 选择答案，空格确认

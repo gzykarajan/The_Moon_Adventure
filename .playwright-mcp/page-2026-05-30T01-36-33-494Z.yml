@@ -1,0 +1,12 @@
+- generic [ref=e2]:
+  - generic "月球探险 3D 游戏画面" [ref=e3]
+  - generic:
+    - generic:
+      - generic: MOON
+      - generic: 月球探险
+    - generic: 外星朋友 1 / 10
+    - generic: 星星 1
+    - button "开启或停止背景音乐" [active] [ref=e4] [cursor=pointer]: ×
+  - generic:
+    - generic: ↑ ↓ 前进/后退 · ← → 转向
+    - generic: 米米 就在附近，靠近她来答题。
