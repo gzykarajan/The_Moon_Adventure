@@ -1,6 +1,6 @@
 {
-  "last_turn_at": "2026-05-30T16:31:37.512Z",
-  "turn_count": 21,
-  "last_progress_at": "2026-05-30T16:31:37.512Z",
-  "last_agent_output": "确实是 `run.bat` 入口的问题：它以前固定打开 `127.0.0.1:5173`，如果旧服务器还占着 5173，新服务器会跑到 5174，但浏览器仍打开旧页面。\n\n已改：\n- [run.bat"
+  "last_turn_at": "2026-06-01T04:28:07.590Z",
+  "turn_count": 22,
+  "last_progress_at": "2026-06-01T04:28:07.590Z",
+  "last_agent_output": "已优化。核心改动在 [src/main.js](d:/MyFun/vibe_coding/The_Moon_Adventure/src/main.js)：\n\n- 把地球初始位置从左上偏中移到更高的右上"
 }

@@ -38,7 +38,7 @@ const ALIEN_FACE_DISTANCE = 18;
 const METEOR_MIN_INTERVAL = 5.5;
 const METEOR_MAX_INTERVAL = 11;
 
-const EARTH_CAMERA_OFFSET = new THREE.Vector3(-34, 31, -120);
+const EARTH_CAMERA_OFFSET = new THREE.Vector3(68, 44, -145);
 const EARTH_BASE_SCALE = new THREE.Vector3(22, 15, 1);
 const EARTH_WORLD_DISTANCE = 1800;
 
@@ -204,7 +204,9 @@ function exposeDevDebug() {
         z: earthGroup.position.z,
         distance: camera.position.distanceTo(earthGroup.position),
         scaleX: earthSprite.scale.x,
-        scaleY: earthSprite.scale.y
+        scaleY: earthSprite.scale.y,
+        depthTest: earthSprite.material.depthTest,
+        renderOrder: earthSprite.renderOrder
       };
     },
     getAliens: () =>
@@ -310,7 +312,7 @@ function createEarth() {
       map: earthTexture,
       transparent: true,
       depthWrite: false,
-      depthTest: false,
+      depthTest: true,
       fog: false
     })
   );
@@ -318,7 +320,7 @@ function createEarth() {
   earthInitialScale.copy(EARTH_BASE_SCALE).multiplyScalar(earthInitialDistance / EARTH_CAMERA_OFFSET.length());
   earthSprite.scale.copy(earthInitialScale);
   earthSprite.center.set(0.5, 0.5);
-  earthSprite.renderOrder = 1;
+  earthSprite.renderOrder = -10;
   earthGroup.add(earthSprite);
 }
 
